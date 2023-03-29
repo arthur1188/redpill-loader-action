@@ -1,4 +1,4 @@
-name: Build RedPill DSM loader
+name: Build DS918+_7.0.1-42218
 
 on: workflow_dispatch
 
