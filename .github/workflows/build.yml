@@ -2,9 +2,9 @@ name: Build DS918+_7.0.1-42218
 
 on: 
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
    build:
