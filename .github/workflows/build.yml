@@ -1,24 +1,23 @@
 name: Build DS918+_7.0.1-42218
 
-on: workflow_dispatch
+on: 
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-  redpill:
+   build:
     runs-on: ubuntu-latest
-    name: Build RedPill lkm and load
     steps:
-      - uses: actions/checkout@v2.1.0
-        name: checkout src
-        id: checkout
-        with:
-          submodules: 'true'
+      - uses: actions/checkout@v3
+     - name: Chmod
+        run: chmod 0755 ./build-ds918-7.0.1.sh
       - name: Build DS918+ 7.0.1
-        id: build-ds918-70
-        run: |
-            bash build-ds918-7.0.1.sh
+        run: ./build-ds918-7.0.1.sh
 
-      - name: Archive DS918+ 7.0.1 loader image
-        uses: actions/upload-artifact@v2
+     - uses: actions/upload-artifact@v3
         with:
-          name: redpill-DS918+_7.0.1-loader
-          path: output/redpill-DS918+_7.0.1-42218.img
+          name: redpill-DS918+_7.0.1-42218
+          path: ./img
+
