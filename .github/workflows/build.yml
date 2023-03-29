@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build RedPill lkm and load
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2.1.0
         name: checkout src
         id: checkout
         with:
@@ -18,7 +18,7 @@ jobs:
             bash build-ds918-7.0.1.sh
 
       - name: Archive DS918+ 7.0.1 loader image
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: redpill-DS918+_7.0.1-loader
           path: output/redpill-DS918+_7.0.1-42218.img
